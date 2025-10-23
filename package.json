@@ -34,12 +34,12 @@
     "LICENSE"
   ],
   "engines": {
-    "node": ">=20.0.0"
+    "bun": ">=1.0.0"
   },
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "bun run build"
   },
   "peerDependencies": {
     "@opencode-ai/plugin": "^0.15.0"
