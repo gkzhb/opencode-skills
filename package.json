@@ -1,5 +1,5 @@
 {
-  "name": "@gkzhb/opencode-skills",
+  "name": "opencode-skills-gkzhb",
   "version": "0.0.4",
   "description": "Anthropic Agent Skills Specification plugin for OpenCode - discover and execute skills with dynamic tool registration",
   "main": "./dist/index.js",
