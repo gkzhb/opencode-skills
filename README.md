@@ -1,6 +1,6 @@
 # OpenCode Skills Plugin
 
-[![npm version](https://img.shields.io/npm/v/opencode-skills.svg)](https://www.npmjs.com/package/opencode-skills)
+[![npm version](https://img.shields.io/npm/v/opencode-skills-gkzhb.svg)](https://www.npmjs.com/package/opencode-skills-gkzhb)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Bring Anthropic's Agent Skills Specification (v1.0) to OpenCode. This plugin automatically discovers and registers skills as dynamic tools, enabling the Agent to leverage specialized knowledge, workflows, and bundled resources.
@@ -23,7 +23,7 @@ Add to your `opencode.json` or `~/.config/opencode/opencode.json`:
 
 ```json
 {
-  "plugin": ["opencode-skills"]
+  "plugin": ["opencode-skills-gkzhb"]
 }
 ```
 
