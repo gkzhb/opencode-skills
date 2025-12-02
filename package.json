@@ -9,7 +9,7 @@
   "author": "M. Adel Alhashemi",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/malhashemi/opencode-skills.git"
+    "url": "git+https://github.com/gkzhb/opencode-skills.git"
   },
   "publishConfig": {
     "access": "public",
@@ -24,9 +24,9 @@
     "ai",
     "claude"
   ],
-  "homepage": "https://github.com/malhashemi/opencode-skills#readme",
+  "homepage": "https://github.com/gkzhb/opencode-skills#readme",
   "bugs": {
-    "url": "https://github.com/malhashemi/opencode-skills/issues"
+    "url": "https://github.com/gkzhb/opencode-skills/issues"
   },
   "files": [
     "dist/",

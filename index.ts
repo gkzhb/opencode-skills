@@ -25,6 +25,7 @@ import { Glob } from "bun"
 import { join, dirname, basename, relative, sep } from "path"
 import { z } from "zod"
 import os from "os"
+import { promises as fs } from "fs"
 
 // Types
 interface Skill {
@@ -145,8 +146,17 @@ async function discoverSkills(basePaths: string[]): Promise<Skill[]> {
 
   for (const basePath of basePaths) {
     try {
+      // Check if directory exists before scanning
+      try {
+        await fs.access(basePath)
+      } catch {
+        // directory not exist, skip scanning
+        continue
+      }
+
       // Find all SKILL.md files recursively
       const glob = new Glob("**/SKILL.md")
+      let skillCount = 0
 
       for await (const match of glob.scan({
         cwd: basePath,
@@ -159,14 +169,16 @@ async function discoverSkills(basePaths: string[]): Promise<Skill[]> {
         })
         if (skill) {
           skills.push(skill)
+          skillCount++
         }
       }
+
+      console.log(`Found ${skillCount} skills in ${basePath}`)
     } catch (error) {
-      // Log warning but continue with other paths
+      // Log other errors but continue with other paths
       console.warn(
         `⚠️  Could not scan skills directory: ${basePath}`,
-        `\n   This is normal if the directory doesn't exist yet.`,
-        `\n   Create it with: mkdir -p ${basePath}`,
+        `\n   Error: ${(error as Error).message}`,
       )
     }
   }
@@ -208,7 +220,7 @@ const constructToolDesc = (skills: Skill[]) => {
 When users ask you to perform tasks, check if any of the available skills below can help complete the task more effectively. Skills provide specialized capabilities and domain knowledge.
 
 How to use skills:
-- Invoke skills using this tool with the skill name only (no arguments)
+- **Invoke skills using this tool \`skills\` with the skill name only (no arguments)**
 - When you invoke a skill, you will see <command-message>The "{name}" skill is loading</command-message>
 - The skill's prompt will expand and provide detailed instructions on how to complete the task
 - Examples:
